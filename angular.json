@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "promise-throttle": {
+      "projectType": "library",
+      "root": "projects/promise-throttle",
+      "sourceRoot": "projects/promise-throttle/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/promise-throttle/tsconfig.lib.json",
+            "project": "projects/promise-throttle/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/promise-throttle/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/promise-throttle/src/test.ts",
+            "tsConfig": "projects/promise-throttle/tsconfig.spec.json",
+            "karmaConfig": "projects/promise-throttle/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/promise-throttle/tsconfig.lib.json",
+              "projects/promise-throttle/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "PromiseThrottle"
